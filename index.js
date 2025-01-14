@@ -1,35 +1,30 @@
+function NivelRanqueadas(vitorias, derrotas) {
+    // Calcula o saldo de vitórias
+    let saldoVitorias = vitorias - derrotas;
 
-function nivelRanqueado(vitorias,derrotas){
+    // Determina o nível com base no saldo de vitórias
+    let nivel;
 
-    let saldoVirorias = vitorias - derrotas;
-
-
-    let rank = ("")
-
-    if (saldoVirorias <= 10 ){
-        rank = "Ferro";
+    if (saldoVitorias < 10) {
+        nivel = "Ferro";
+    } else if (saldoVitorias >= 11 && saldoVitorias <= 20) {
+        nivel = "Bronze";
+    } else if (saldoVitorias >= 21 && saldoVitorias <= 50) {
+        nivel = "Prata";
+    } else if (saldoVitorias >= 51 && saldoVitorias <= 80) {
+        nivel = "Ouro";
+    } else if (saldoVitorias >= 81 && saldoVitorias <= 90) {
+        nivel = "Diamante";
+    } else if (saldoVitorias >= 91 && saldoVitorias <= 100) {
+        nivel = "Lendário ";
+    } else {
+        nivel = "Imortal "
     }
-    else if (saldoVirorias <= 11 && saldoVirorias >= 20){
-        rank = "Bronze"
-    }
-    else if(saldoVirorias <= 21 && saldoVirorias >= 50){
-        rank = "Prata"
-    }
-    else if(saldoVirorias <= 51 && saldoVirorias >= 80){
-        rank = "Ouro"
-    }
-    else if(saldoVirorias <= 81 && saldoVirorias >= 90){
-        rank = "Diamante"
-    }
-    else if(saldoVirorias <= 91 && saldoVirorias >= 100){
-        rank = "Lendário"
-    }
-    else{
-        rank = "Imortal"
-    }
+    // Retorno a mensagem de saída
     return `O Herói tem um saldo de ${saldoVitorias} está no nível de ${nivel}!`;
 }
-let vitorias = 105;
-let derrotas = 5;
-const resultado = nivelRanqueado(vitorias,derrotas);
+
+let vitorias = 140;
+let derrotas = 20;
+const resultado = NivelRanqueadas(vitorias, derrotas);
 console.log(resultado);
